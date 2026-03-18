@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CyberSec Portfolio</title>
+
+  <!-- =============================================
+       FONTS — swap Roboto Mono or Share Tech Mono
+       for any monospace you prefer
+  ============================================= -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <!-- Devicons for tech-stack icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"/>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- ░░ CUSTOM CURSOR ░░ -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ░░ CANVAS PARTICLES ░░ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ░░ NAVIGATION ░░ -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <!-- Replace YOUR_HANDLE with your handle/alias -->
+      <span class="glitch" data-text="&lt;/PHANTOM&gt;">&lt;/PHANTOM&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home"    class="nav-link active" data-section="0">Home</a></li>
+      <li><a href="#about"   class="nav-link"        data-section="1">About</a></li>
+      <li><a href="#projects"class="nav-link"        data-section="2">Projects</a></li>
+      <li><a href="#contact" class="nav-link"        data-section="3">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       SECTION 1 — HOME
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section id="home" class="section section--home">
+
+    <!-- Scanline overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Hex grid background (pure CSS) -->
+    <div class="hex-grid"></div>
+
+    <div class="home-content">
+
+      <!-- ── Profile photo ──────────────────────
+           To replace: swap img/profile-placeholder.svg
+           with your own image file (jpg/png/webp)
+           and update the src attribute below.
+      ──────────────────────────────────────── -->
+      <div class="profile-wrap">
+        <div class="profile-ring ring1"></div>
+        <div class="profile-ring ring2"></div>
+        <div class="profile-ring ring3"></div>
+        <img
+          src="img/profile-placeholder.svg"
+          alt="Profile photo"
+          class="profile-img"
+          id="profileImg"
+        />
+        <!-- Status badge -->
+        <span class="status-badge">
+          <span class="status-dot"></span>
+          Available for hire
+        </span>
+      </div>
+
+      <!-- ── Text block ── -->
+      <div class="home-text">
+        <p class="home-greeting">
+          <span class="prompt">root@kali:~$</span>
+          <span class="typed-greeting" id="typedGreeting"></span>
+        </p>
+
+        <!-- Replace "YOUR NAME" with your actual name -->
+        <h1 class="home-name">
+          <span class="name-word">YOUR</span>
+          <span class="name-word accent">NAME</span>
+        </h1>
+
+        <!-- Roles cycle — edit the roles array in script.js -->
+        <div class="roles-wrap">
+          <span class="role-prefix">//</span>
+          <span class="roles-text" id="rolesText"></span>
+          <span class="cursor-blink">_</span>
+        </div>
+
+        <p class="home-tagline">
+          Breaking systems. Securing futures. One shell at a time.
+        </p>
+
+        <div class="home-cta">
+          <a href="#projects" class="btn btn--primary">
+            <span>View Projects</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--ghost">Contact Me</a>
+        </div>
+
+        <!-- Quick-stat bar -->
+        <div class="stat-bar">
+          <div class="stat">
+            <!-- Replace numbers with your real stats -->
+            <span class="stat-num" data-target="50">0</span>+
+            <span class="stat-label">CTF Challenges</span>
+          </div>
+          <div class="stat-sep">|</div>
+          <div class="stat">
+            <span class="stat-num" data-target="12">0</span>+
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-sep">|</div>
+          <div class="stat">
+            <span class="stat-num" data-target="5">0</span>+
+            <span class="stat-label">Certifications</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint">
+      <span>SCROLL</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       SECTION 2 — ABOUT / ACHIEVEMENTS
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section id="about" class="section section--about">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">01 // ABOUT</span>
+      <h2 class="section-title">Recon <span class="accent">Complete</span></h2>
+    </div>
+
+    <div class="about-grid">
+
+      <!-- Bio -->
+      <div class="about-bio" data-aos="fade-right" data-aos-delay="100">
+        <div class="terminal-box">
+          <div class="terminal-topbar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">whoami.sh</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-line"><span class="t-cmd">$</span> cat about.txt</p>
+            <!-- ── Replace this paragraph with your own bio ── -->
+            <p class="terminal-output">
+              I'm a cybersecurity specialist with a passion for offensive
+              security, vulnerability research, and building tools that
+              defend the digital frontier. I thrive at the intersection of
+              creative problem-solving and technical depth.
+            </p>
+            <br/>
+            <p class="terminal-line"><span class="t-cmd">$</span> cat interests.txt</p>
+            <p class="terminal-output">
+              Penetration Testing · Red Teaming · CTF Competition ·
+              Malware Analysis · Threat Intelligence · Secure Code Review
+            </p>
+            <br/>
+            <p class="terminal-line blink-cursor"><span class="t-cmd">$</span> <span class="cursor-blink">▌</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills / Tech stack -->
+      <div class="about-skills" data-aos="fade-left" data-aos-delay="200">
+        <h3 class="skills-title">Arsenal</h3>
+        <!-- Add / remove skill items to match your real stack -->
+        <div class="skills-grid">
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
+            <i class="devicon-linux-plain colored"></i>
+            <span>Linux</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="150">
+            <i class="devicon-python-plain colored"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
+            <i class="devicon-bash-plain colored"></i>
+            <span>Bash</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="250">
+            <i class="devicon-docker-plain colored"></i>
+            <span>Docker</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
+            <i class="devicon-git-plain colored"></i>
+            <span>Git</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="350">
+            <i class="devicon-c-plain colored"></i>
+            <span>C / C++</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+            <i class="devicon-javascript-plain colored"></i>
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item" data-aos="zoom-in" data-aos-delay="450">
+            <i class="devicon-mysql-plain colored"></i>
+            <span>SQL</span>
+          </div>
+        </div>
+
+        <!-- Tool tags — add/remove as needed -->
+        <div class="tool-tags">
+          <span class="tag">Metasploit</span>
+          <span class="tag">Burp Suite</span>
+          <span class="tag">Nmap</span>
+          <span class="tag">Wireshark</span>
+          <span class="tag">Nessus</span>
+          <span class="tag">Hydra</span>
+          <span class="tag">SQLMap</span>
+          <span class="tag">John the Ripper</span>
+          <span class="tag">OWASP ZAP</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications row -->
+    <div class="certs-row" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="certs-title">Certifications &amp; Achievements</h3>
+      <div class="certs-grid">
+        <!-- ── Duplicate/edit cert cards as needed ── -->
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="100">
+          <div class="cert-icon">🏅</div>
+          <div class="cert-info">
+            <!-- Replace with your real cert name + issuer -->
+            <strong>CEH — Certified Ethical Hacker</strong>
+            <span>EC-Council · 2024</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="200">
+          <div class="cert-icon">🔐</div>
+          <div class="cert-info">
+            <strong>CompTIA Security+</strong>
+            <span>CompTIA · 2023</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="300">
+          <div class="cert-icon">🧠</div>
+          <div class="cert-info">
+            <strong>eJPT — Junior Pen Tester</strong>
+            <span>eLearnSecurity · 2023</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="400">
+          <div class="cert-icon">🏆</div>
+          <div class="cert-info">
+            <strong>Top 5% — TryHackMe</strong>
+            <span>Global Ranking · 2024</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="500">
+          <div class="cert-icon">⚡</div>
+          <div class="cert-info">
+            <strong>Google Cybersecurity Certificate</strong>
+            <span>Google · 2023</span>
+          </div>
+        </div>
+        <div class="cert-card" data-aos="flip-left" data-aos-delay="600">
+          <div class="cert-icon">🛡️</div>
+          <div class="cert-info">
+            <strong>OSCP (In Progress)</strong>
+            <span>Offensive Security · 2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       SECTION 3 — PROJECTS
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section id="projects" class="section section--projects">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">02 // PROJECTS</span>
+      <h2 class="section-title">Exploit <span class="accent">Lab</span></h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- ══════════════════════════════════════════
+           PROJECT CARD — duplicate this block to add
+           more projects. Update:
+             • data-category
+             • img src (replace with your screenshot)
+             • title, description, tags
+             • href on both buttons
+      ══════════════════════════════════════════ -->
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="pentest">
+        <div class="card-image-wrap">
+          <!-- Replace src with your own screenshot -->
+          <img src="img/project1.svg" alt="Project 1 screenshot" class="card-img"/>
+          <div class="card-overlay">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="overlay-btn">GitHub</a>
+            <a href="#" target="_blank" class="overlay-btn">Live Demo</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag--accent">Python</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Pen Testing</span>
+          </div>
+          <h3 class="card-title">AutoRecon Framework</h3>
+          <p class="card-desc">
+            Automated reconnaissance tool that chains Nmap, Gobuster, and
+            Nikto scans, parses output into a structured HTML report, and
+            highlights CVEs for rapid triage during CTF engagements.
+          </p>
+          <div class="card-footer">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="card-link">
+              View on GitHub →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="malware">
+        <div class="card-image-wrap">
+          <img src="img/project2.svg" alt="Project 2 screenshot" class="card-img"/>
+          <div class="card-overlay">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="overlay-btn">GitHub</a>
+            <a href="#" target="_blank" class="overlay-btn">Write-up</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag--accent">C</span>
+            <span class="tag">Reverse Engineering</span>
+            <span class="tag">Analysis</span>
+          </div>
+          <h3 class="card-title">Keylogger &amp; Analyzer</h3>
+          <p class="card-desc">
+            Kernel-level keylogger built for educational malware analysis.
+            Paired with a Python-based log parser that detects credential
+            patterns and generates forensic timeline reports.
+          </p>
+          <div class="card-footer">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="card-link">
+              View on GitHub →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="web">
+        <div class="card-image-wrap">
+          <img src="img/project3.svg" alt="Project 3 screenshot" class="card-img"/>
+          <div class="card-overlay">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="overlay-btn">GitHub</a>
+            <a href="#" target="_blank" class="overlay-btn">Live Demo</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag--accent">Burp Suite</span>
+            <span class="tag">OWASP</span>
+            <span class="tag">SQLi</span>
+          </div>
+          <h3 class="card-title">Web Vuln Scanner</h3>
+          <p class="card-desc">
+            Custom web vulnerability scanner targeting OWASP Top 10.
+            Detects SQLi, XSS, CSRF, and SSRF vectors, outputs a
+            severity-scored JSON report compatible with Jira integration.
+          </p>
+          <div class="card-footer">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="card-link">
+              View on GitHub →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="ctf">
+        <div class="card-image-wrap">
+          <img src="img/project4.svg" alt="Project 4 screenshot" class="card-img"/>
+          <div class="card-overlay">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="overlay-btn">GitHub</a>
+            <a href="#" target="_blank" class="overlay-btn">Write-ups</a>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-tags">
+            <span class="tag tag--accent">CTF</span>
+            <span class="tag">Crypto</span>
+            <span class="tag">Forensics</span>
+          </div>
+          <h3 class="card-title">CTF Write-up Archive</h3>
+          <p class="card-desc">
+            Collection of detailed write-ups from 50+ CTF challenges across
+            HackTheBox, TryHackMe, and picoCTF — covering forensics,
+            cryptography, binary exploitation, and OSINT.
+          </p>
+          <div class="card-footer">
+            <a href="https://github.com/YOUR_GITHUB" target="_blank" class="card-link">
+              View on GitHub →
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.projects-grid -->
+  </section>
+
+
+  <!-- ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       SECTION 4 — CONTACT
+  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ -->
+  <section id="contact" class="section section--contact">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">03 // CONTACT</span>
+      <h2 class="section-title">Open a <span class="accent">Channel</span></h2>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Info panel -->
+      <div class="contact-info" data-aos="fade-right" data-aos-delay="100">
+        <p class="contact-blurb">
+          Whether it's a security audit, collaboration, or just geeking
+          out over CVEs — my inbox is always open. Encrypted comms preferred.
+        </p>
+
+        <!-- ── Update href values with your real links ── -->
+        <div class="social-links">
+          <a href="https://github.com/YOUR_GITHUB" target="_blank" class="social-link" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 
+              11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 
+              0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 
+              1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 
+              7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 
+              13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 
+              1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 
+              24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>Email</span>
+          </a>
+          <a href="https://tryhackme.com/p/YOUR_THM" target="_blank" class="social-link" aria-label="TryHackMe">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 
+              12-12S18.627 0 12 0zm.293 16.707l-4-4a1 1 0 010-1.414l4-4a1 1 
+              0 011.414 1.414L10.414 12l3.293 3.293a1 1 0 01-1.414 1.414z"/>
+            </svg>
+            <span>TryHackMe</span>
+          </a>
+        </div>
+
+        <!-- PGP Key hint — optional, remove if not needed -->
+        <div class="pgp-hint" data-aos="fade-up" data-aos-delay="300">
+          <span class="t-cmd">$</span>
+          <span class="pgp-text" id="pgpText">gpg --recv-keys 0xYOUR_PGP_KEY</span>
+          <button class="copy-btn" id="copyPGP" title="Copy to clipboard">⧉</button>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="contact-form-wrap" data-aos="fade-left" data-aos-delay="200">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="nameInput">Name</label>
+            <input type="text" id="nameInput" name="name" placeholder="John Doe" required/>
+            <span class="form-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" name="email" placeholder="john@example.com" required/>
+            <span class="form-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="subjectInput">Subject</label>
+            <input type="text" id="subjectInput" name="subject" placeholder="Collaboration / Audit / Hello"/>
+          </div>
+          <div class="form-group">
+            <label for="messageInput">Message</label>
+            <textarea id="messageInput" name="message" rows="5" placeholder="Your message..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+            <span id="btnText">Send Message</span>
+            <svg viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess">
+            ✔ Message received. I'll get back to you shortly.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer" data-aos="fade-up">
+      <p>
+        <!-- Replace YOUR NAME -->
+        Designed &amp; built by <span class="accent">YOUR NAME</span>
+        &nbsp;·&nbsp;
+        <span id="footerYear"></span>
+        &nbsp;·&nbsp;
+        <!-- Replace with your repo URL -->
+        <a href="https://github.com/YOUR_GITHUB/portfolio" target="_blank">Source on GitHub</a>
+      </p>
+    </footer>
+  </section>
+
+  <!-- ░░ SCRIPTS ░░ -->
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <!-- Main script -->
+  <script src="js/script.js"></script>
+</body>
+</html>
